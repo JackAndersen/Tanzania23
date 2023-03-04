@@ -273,7 +273,7 @@
         }
     });
 
-    viewer.dataSources.add(Cesium.KmlDataSource.load("Data/Garmin/tanzaniaborder.kml",{clampToGround: false}));
+    viewer.dataSources.add(Cesium.KmlDataSource.load("Data/Garmin/tanzaniabordernoz.kml",{clampToGround: true}));
 
     viewer.animation.viewModel.timeFormatter = function(date, viewModel) {
       date = Cesium.JulianDate.toDate(date);
