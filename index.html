@@ -219,6 +219,7 @@
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
         viewer.clock.multiplier = 750;
+        viewer.dataSources.add(Cesium.GpxDataSource.load("Data/Garmin/tanzaniaborder.gpx"));
         //addbillboards();
        }
   )});
