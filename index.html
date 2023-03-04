@@ -212,8 +212,7 @@
             )
           )
       .then(function (dataSource) {
-      	viewer.flyTo(dataSource.entities, {duration : 1.0}).then(
-      	viewer.trackedEntity = dataSource);
+      	viewer.flyTo(dataSource.entities, {duration : 1.0});
         //setInterval(function() {
         //viewer.flyTo(dataSource.entities, {duration : 1.0});
         //}, 2000));
