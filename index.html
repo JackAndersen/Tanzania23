@@ -221,8 +221,8 @@
           const entity = activeDataSource.entities._entities._array[0]; 
 
           const center = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
-          const heading = Cesium.Math.toRadians(50.0);
-          const pitch = Cesium.Math.toRadians(-20.0);
+          const heading = Cesium.Math.toRadians(0.0);
+          const pitch = Cesium.Math.toRadians(-90.0);
           const range = 5000.0;
           viewer.camera.lookAt(entity.position.getValue(clock.currentTime), new Cesium.HeadingPitchRange(heading, pitch, range));
         });
@@ -231,7 +231,7 @@
         //}, 2000));
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
-        viewer.clock.multiplier = 750;
+        viewer.clock.multiplier = 500;
         //addbillboards();
        }
   )});
