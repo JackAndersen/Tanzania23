@@ -196,6 +196,7 @@
   var formchange = document.querySelector('datalist');
   datalist.addEventListener('change', function() {
     var gpxinput = document.getElementById("datalist").value;
+    viewer.clock.multiplier = 0;
     viewer.dataSources
       .add(
         Cesium.GpxDataSource.load(
@@ -212,7 +213,6 @@
             )
           )
       .then(function (dataSource) {
-      	viewer.clock.multiplier = 0;
       	viewer.flyTo(dataSource.entities,duration = 1.0).then(
         setInterval(function() {
         viewer.flyTo(dataSource.entities,duration = 1.0);
