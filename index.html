@@ -212,7 +212,9 @@
             )
           )
       .then(function (dataSource) {
-        viewer.flyTo(dataSource.entities);
+        setInterval(function() {
+        viewer.flyTo(dataSource.entities,duration=1.0);
+        }, 1000);
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
         addbillboards();
