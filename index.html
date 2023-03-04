@@ -212,9 +212,9 @@
             )
           )
       .then(function (dataSource) {
-      	viewer.flyTo({dataSource.entities,duration:1.0}).then(
+      	viewer.flyTo(dataSource.entities,duration:0.5).then(
         setInterval(function() {
-        viewer.flyTo({dataSource.entities,duration:0.5});
+        viewer.flyTo(dataSource.entities,duration:1.0);
         }, 2000));
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
@@ -262,10 +262,10 @@
     const scene = viewer.scene;
     const globe = scene.globe;
     
-    globe.terrainExaggeration = 2;
+    globe.terrainExaggeration = 2.0;
   
     scene.camera.setView({
-    destination : Cesium.Cartesian3.fromDegrees(15.00, 30, 20000000.0),
+    destination : Cesium.Cartesian3.fromDegrees(15.00, 27.5, 20000000.0),
     orientation: {
         heading : Cesium.Math.toRadians(0.0), // east, default value is 0.0 (north)
         pitch : Cesium.Math.toRadians(-90),    // default value (looking down)
