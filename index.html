@@ -223,11 +223,11 @@
 
           const center = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
           const heading = Cesium.Math.toRadians(0.0);
-          const pitch = Cesium.Math.toRadians(-75.0);
-          const range = 50000.0;
+          const pitch = Cesium.Math.toRadians(-50.0);
+          const range = 100000.0;
           viewer.camera.lookAt(entity.position.getValue(clock.currentTime), new Cesium.HeadingPitchRange(heading, pitch, range));
         });
-        //fejl ved skift til næste track når den følger efter
+        //fejl ved skift til næste track når den følger efter loop
         //.then(setInterval(function() {
         //viewer.flyTo(dataSource.entities, {duration : 1.0});
         //}, 2000));
