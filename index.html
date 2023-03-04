@@ -212,16 +212,13 @@
             )
           )
       .then(function (dataSource) {
-      	viewer.flyTo(dataSource.entities,duration = 0.5).then(
+      	viewer.flyTo({dataSource.entities,duration:1.0}).then(
         setInterval(function() {
-        viewer.flyTo(dataSource.entities,duration = 1.0);
+        viewer.flyTo({dataSource.entities,duration:0.5});
         }, 2000));
-        console.log("wait");
-        setTimeout(() => {  console.log("1sec!"); }, 1000).then(
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
         viewer.clock.multiplier = 750;
-        );
         //addbillboards();
        }
   )});
