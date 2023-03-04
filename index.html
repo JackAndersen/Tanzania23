@@ -212,10 +212,10 @@
             )
           )
       .then(function (dataSource) {
-      	viewer.zoomTo(dataSource.entities,duration = 0.5);
+      	viewer.flyTo(dataSource.entities,duration = 0.5).then(
         setInterval(function() {
         viewer.flyTo(dataSource.entities,duration = 1.0);
-        }, 2000);
+        }, 2000));
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
         viewer.clock.multiplier = 750;
