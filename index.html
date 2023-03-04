@@ -213,10 +213,11 @@
           )
       .then(function (dataSource) {
         setInterval(function() {
-        viewer.flyTo(dataSource.entities,duration=2.0);
-        }, 3000);
+        viewer.flyTo(dataSource.entities,duration = 1.0);
+        }, 2000);
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
+        viewer.clock.multiplier = 0.75;
         addbillboards();
        }
   )});
