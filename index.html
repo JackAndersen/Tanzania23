@@ -219,7 +219,6 @@
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
         viewer.clock.multiplier = 750;
-        viewer.dataSources.add(Cesium.GpxDataSource.load("Data/Garmin/tanzaniaborder.gpx"));
         //addbillboards();
        }
   )});
@@ -273,6 +272,8 @@
         roll : 0.0                             // default value
         }
     });
+
+    viewer.dataSources.add(Cesium.GpxDataSource.load("Data/Garmin/tanzaniaborder.gpx"));
 
     viewer.animation.viewModel.timeFormatter = function(date, viewModel) {
       date = Cesium.JulianDate.toDate(date);
