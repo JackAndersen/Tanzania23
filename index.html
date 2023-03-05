@@ -226,7 +226,8 @@
         viewer.flyTo(dataSource.entities, {duration : 1.0});
         }, 2000));
         if (gpxinput.valueOf() !== "Data/Garmin/combined.gpx") {
-        activeDataSource = dataSource;         
+        activeDataSource = dataSource; 
+        viewer.flyTo(dataSource.entities, {duration : 2.0});
         viewer.clock.onTick.addEventListener(function (clock) {
           // This is admittedly not ideal, however, currently, this seems necessary to me
           // since we do not read entity IDs from GPX and they are generated at runtime.
