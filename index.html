@@ -221,25 +221,25 @@
             )
           )
       .then(function (dataSource) {
-      	viewer.flyTo(dataSource.entities, {duration : 1.5});
-      	activeDataSource = dataSource;
-          
-        viewer.clock.onTick.addEventListener(function (clock) {
+      	viewer.flyTo(dataSource.entities, {duration : 1.5})
+      	.then(function() {
+      	  viewer.flyTo(dataSource.entities, {duration : 1.0});
+          }, 2000)});
+      	//activeDataSource = dataSource;
+      	//          
+        //viewer.clock.onTick.addEventListener(function (clock) {
           // This is admittedly not ideal, however, currently, this seems necessary to me
           // since we do not read entity IDs from GPX and they are generated at runtime.
-          const entity = activeDataSource.entities._entities._array[0];
-          console.log(entity.position.getValue(clock.currentTime));
-          if (entity.position.getValue(clock.currentTime) === undefined) {clock.currentTime+1;}
-          const center = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
-          const heading = Cesium.Math.toRadians(0.0);
-          const pitch = Cesium.Math.toRadians(-50.0);
-          const range = 100000.0;
-          viewer.camera.lookAt(entity?.position?.getValue(clock.currentTime), new Cesium.HeadingPitchRange(heading, pitch, range));
-        });
+          //const entity = activeDataSource.entities._entities._array[0];
+          //console.log(entity.position.getValue(clock.currentTime));
+          //if ('x' === undefined) {clock.currentTime+1;}
+          //const center = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
+          //const heading = Cesium.Math.toRadians(0.0);
+          //const pitch = Cesium.Math.toRadians(-50.0);
+          //const range = 100000.0;
+          //viewer.camera.lookAt(entity?.position?.getValue(clock.currentTime), new Cesium.HeadingPitchRange(heading, pitch, range));
+        //});
         //fejl ved skift til næste track når den følger efter loop
-        //.then(setInterval(function() {
-        //viewer.flyTo(dataSource.entities, {duration : 1.0});
-        //}, 2000));
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
         viewer.clock.multiplier = 500;
