@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, viewport-fit=cover">
   <!-- Include the CesiumJS JavaScript and CSS files -->
   <script src="Build/Cesium/Cesium.js" type="application/javascript"></script>
   <link href="Build/Cesium/Widgets/widgets.css" type="text/css" rel="stylesheet">
@@ -13,6 +14,14 @@
 </head>
 <body>
   <style>
+  /* For fullscreen ios */
+  @supports(padding:max(0px)) {
+  html, body, header, footer {
+    padding-left: min(0vmin, env(safe-area-inset-left));
+    padding-right: min(0vmin, env(safe-area-inset-right));
+    }
+  }
+  
   /* To make fullscreen work after cesium update */
   html, body, #cesiumContainer {
   width: 100%;
@@ -220,6 +229,21 @@
         viewer.clock.shouldAnimate = true;
         viewer.clock.multiplier = 750;
         //addbillboards();
+        //activeDataSource = dataSource;
+      	//          
+        //viewer.clock.onTick.addEventListener(function (clock) {
+          // This is admittedly not ideal, however, currently, this seems necessary to me
+          // since we do not read entity IDs from GPX and they are generated at runtime.
+          //const entity = activeDataSource.entities._entities._array[0];
+          //console.log(entity.position.getValue(clock.currentTime));
+          //if ('x' === undefined) {clock.currentTime+1;}
+          //const center = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
+          //const heading = Cesium.Math.toRadians(0.0);
+          //const pitch = Cesium.Math.toRadians(-50.0);
+          //const range = 100000.0;
+          //viewer.camera.lookAt(entity?.position?.getValue(clock.currentTime), new Cesium.HeadingPitchRange(heading, pitch, range));
+        //});
+        //fejl ved skift til næste track når den følger efter loop
        }
   )});
   
