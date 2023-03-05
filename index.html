@@ -234,7 +234,7 @@
           const heading = Cesium.Math.toRadians(0.0);
           const pitch = Cesium.Math.toRadians(-50.0);
           const range = 100000.0;
-          viewer.camera.lookAt(entity.position.getValue(clock.currentTime), new Cesium.HeadingPitchRange(heading, pitch, range));
+          viewer.camera.lookAt(entity?.position?.getValue(clock.currentTime), new Cesium.HeadingPitchRange(heading, pitch, range));
         });
         //fejl ved skift til næste track når den følger efter loop
         //.then(setInterval(function() {
