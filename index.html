@@ -225,27 +225,21 @@
         setInterval(function() {
         viewer.flyTo(dataSource.entities, {duration : 1.0});
         }, 2000));
-        wait(500);
-        viewer.clock.canAnimate = true;
-        viewer.clock.shouldAnimate = true;
-        viewer.clock.multiplier = 750;
         if (gpxinput.valueOf() !== "Data/Garmin/combined.gpx") {
         activeDataSource = dataSource;
         viewer.flyTo(dataSource.entities, {duration : 2.0});
-        wait(500);
         viewer.clock.onTick.addEventListener(function (clock) {
           // This is admittedly not ideal, however, currently, this seems necessary to me
           // since we do not read entity IDs from GPX and they are generated at runtime.
           const entity = activeDataSource.entities._entities._array[0];
-          console.log(entity.position.getValue(clock.currentTime));
-          if ('x' === undefined) {clock.currentTime+1;}
+          // console.log(entity.position.getValue(clock.currentTime));
+          // if ('x' === undefined) {clock.currentTime+1;}
           const center = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
           const heading = Cesium.Math.toRadians(0.0);
           const pitch = Cesium.Math.toRadians(-50.0);
           const range = 100000.0;
           viewer.camera.lookAt(entity.position.getValue(clock.currentTime), new Cesium.HeadingPitchRange(heading, pitch, range));
         });
-        //fejl ved skift til næste track når den følger efter loop
         };
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
