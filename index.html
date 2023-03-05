@@ -229,6 +229,7 @@
           // since we do not read entity IDs from GPX and they are generated at runtime.
           const entity = activeDataSource.entities._entities._array[0];
           console.log(entity.position.getValue(clock.currentTime));
+          if (entity.position.getValue(clock.currentTime) === undefined) {clock.currentTime+1;}
           const center = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
           const heading = Cesium.Math.toRadians(0.0);
           const pitch = Cesium.Math.toRadians(-50.0);
