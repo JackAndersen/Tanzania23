@@ -225,6 +225,7 @@
       	activeDataSource = dataSource;
           
         viewer.clock.onTick.addEventListener(function (clock) {
+          if (entity.position.getValue(clock.currentTime)=0) { clock.currentTime+1;}
           // This is admittedly not ideal, however, currently, this seems necessary to me
           // since we do not read entity IDs from GPX and they are generated at runtime.
           const entity = activeDataSource.entities._entities._array[0]; 
