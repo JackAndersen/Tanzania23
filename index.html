@@ -221,10 +221,7 @@
             )
           )
       .then(function (dataSource) {
-      	viewer.flyTo(dataSource.entities, {duration : 1.5})
-      	.then(function() {
-      	  viewer.flyTo(dataSource.entities, {duration : 1.0});
-          }, 2000)});
+      	viewer.flyTo(dataSource.entities, {duration : 1.5});
       	//activeDataSource = dataSource;
       	//          
         //viewer.clock.onTick.addEventListener(function (clock) {
