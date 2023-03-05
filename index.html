@@ -225,10 +225,14 @@
         setInterval(function() {
         viewer.flyTo(dataSource.entities, {duration : 1.0});
         }, 2000));
+        wait(500);
+        viewer.clock.canAnimate = true;
+        viewer.clock.shouldAnimate = true;
+        viewer.clock.multiplier = 750;
         if (gpxinput.valueOf() !== "Data/Garmin/combined.gpx") {
         activeDataSource = dataSource;
         viewer.flyTo(dataSource.entities, {duration : 2.0});
-        wait(2000);
+        wait(500);
         viewer.clock.onTick.addEventListener(function (clock) {
           // This is admittedly not ideal, however, currently, this seems necessary to me
           // since we do not read entity IDs from GPX and they are generated at runtime.
@@ -243,9 +247,6 @@
         });
         //fejl ved skift til næste track når den følger efter loop
         };
-        
-        
-        
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
         viewer.clock.multiplier = 750;
