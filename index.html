@@ -221,13 +221,13 @@
             )
           )
       .then(function (dataSource) {
-      	viewer.flyTo(dataSource.entities, {duration : 2.0}).then(
+      	viewer.flyTo(dataSource.entities, {duration : 5.0}).then(
         setInterval(function() {
         viewer.flyTo(dataSource.entities, {duration : 1.0});
         }, 2000));
         if (gpxinput.valueOf() !== "Data/Garmin/combined.gpx") {
         activeDataSource = dataSource; 
-        viewer.flyTo(dataSource.entities, {duration : 2.0});
+        viewer.flyTo(dataSource.entities, {duration : 2.0}).then(
         viewer.clock.onTick.addEventListener(function (clock) {
           // This is admittedly not ideal, however, currently, this seems necessary to me
           // since we do not read entity IDs from GPX and they are generated at runtime.
@@ -239,7 +239,7 @@
           const pitch = Cesium.Math.toRadians(-50.0);
           const range = 100000.0;
           viewer.camera.lookAt(entity.position.getValue(clock.currentTime), new Cesium.HeadingPitchRange(heading, pitch, range));
-        });
+        }));
         //fejl ved skift til næste track når den følger efter loop
         };
         
