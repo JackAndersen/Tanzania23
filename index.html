@@ -424,6 +424,21 @@
           billboard: {
           image: canvas.toDataURL(),
           verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+          heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+          },
+        });
+      });
+      //Create a red pin representing a hospital from the maki icon set.
+      const hospitalPin = Promise.resolve(
+        pinBuilder.fromMakiIconId("lodging", Cesium.Color.RED, 48)
+      ).then(function (canvas) {
+        return viewer.entities.add({
+          name: "Hospital",
+          position: Cesium.Cartesian3.fromDegrees(-75.1698606, 39.9211275),
+          billboard: {
+            image: canvas.toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
           },
         });
       });
