@@ -246,6 +246,7 @@
         viewer.clock.shouldAnimate = true;
         viewer.clock.multiplier = 750;
         addbillboards();
+        addtanzania();
        }
   )});
   
@@ -298,8 +299,10 @@
         roll : 0.0                             // default value
         }
     });
-
-    viewer.dataSources.add(Cesium.KmlDataSource.load("Data/Garmin/tanzaniabordernoz.kml",{clampToGround: true}));
+    
+    function addtanzania() {
+      viewer.dataSources.add(Cesium.KmlDataSource.load("Data/Garmin/tanzaniabordernoz.kml",{clampToGround: true}));
+    }
 
     viewer.animation.viewModel.timeFormatter = function(date, viewModel) {
       date = Cesium.JulianDate.toDate(date);
