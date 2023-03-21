@@ -213,7 +213,7 @@
           {
                 clampToGround: true,
                 trackColor: Cesium.Color.YELLOW,
-                waypointImage:   Promise.resolve(pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 60)).then(function (canvas) {return viewer.entities.add({name: "Himalayan", billboard: {image: Motorurl, verticalOrigin: Cesium.VerticalOrigin.BOTTOM, sizeInMeters: true, scale: 100}})}),
+                waypointImage:   Promise.resolve(pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 60)).then(function (canvas) {return viewer.entities.add({name: "Himalayan", billboard: {image: Motorurl, verticalOrigin: Cesium.VerticalOrigin.BOTTOM, sizeInMeters: true, scale: 10000}})}),
 //billboard: {image: Motorurl, verticalOrigin: Cesium.VerticalOrigin.BOTTOM, sizeInMeters: true, scale: 100},}),//pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 60),
               }
             )
