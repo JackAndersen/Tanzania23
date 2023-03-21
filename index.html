@@ -318,109 +318,13 @@
     const pinBuilder = new Cesium.PinBuilder();
 
     function addbillboards() {
-    viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(37.084390902891755, -2.9867632035166025),
-      billboard: {
-        image: "https://cdn-icons-png.flaticon.com/512/7235/7235047.png", // default: undefined
-        show: true, // default
-        width: 60, // default: undefined
-        height: 60, // default: undefined
-        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-        translucencyByDistance : new Cesium.NearFarScalar(50000, 1.0, 500000, 0.0),
-        },
-      });
-      viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(37.762555, -4.090915),
-      billboard: {
-        image: "https://cdn-icons-png.flaticon.com/512/7235/7235047.png", // default: undefined
-        show: true, // default
-        width: 60, // default: undefined
-        height: 60, // default: undefined
-        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-        translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
-        },
-      });
-      viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(38.311977, -4.421487),
-      billboard: {
-        image: "https://cdn-icons-png.flaticon.com/512/7235/7235047.png", // default: undefined
-        show: true, // default
-        width: 60, // default: undefined
-        height: 60, // default: undefined
-        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-        translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
-        },
-      });
-      viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(38.334603728726506, -4.76095587015152),
-      billboard: {
-        image: "https://cdn-icons-png.flaticon.com/512/7235/7235047.png", // default: undefined
-        show: true, // default
-        width: 60, // default: undefined
-        height: 60, // default: undefined
-        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-        translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
-        },
-      });
-      viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(38.26571077108383, -4.793711844831705),
-      billboard: {
-        image: "https://cdn-icons-png.flaticon.com/512/7235/7235047.png", // default: undefined
-        show: true, // default
-        width: 60, // default: undefined
-        height: 60, // default: undefined
-        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-        translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
-        },
-      });
-      viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(37.750897044315934, -4.070928934961557),
-      billboard: {
-        image: "https://cdn-icons-png.flaticon.com/512/7235/7235047.png", // default: undefined
-        show: true, // default
-        width: 60, // default: undefined
-        height: 60, // default: undefined
-        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-        translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
-        },
-      });
-      viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(37.82393275760114, -3.9636328630149364),
-      billboard: {
-        image: "https://cdn-icons-png.flaticon.com/512/7235/7235047.png", // default: undefined
-        show: true, // default
-        width: 60, // default: undefined
-        height: 60, // default: undefined
-        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-        translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
-        },
-      });
-      viewer.entities.add({
-      position: Cesium.Cartesian3.fromDegrees(37.823979780077934, -3.963634120300412),
-      billboard: {
-        image: "https://cdn-icons-png.flaticon.com/512/7235/7235047.png", // default: undefined
-        show: true, // default
-        width: 60, // default: undefined
-        height: 60, // default: undefined
-        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-        translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
-        },
-      });
       const url = Cesium.buildModuleUrl("https://cdn-icons-png.flaticon.com/512/7235/7235047.png");
-      const groceryPin = Promise.resolve(
+      const LodgeUrl = Promise.resolve(
         pinBuilder.fromUrl(url, Cesium.Color.WHITE, 48)
       ).then(function (canvas) {
         return viewer.entities.add({
-          name: "Grocery store",
-          position: Cesium.Cartesian3.fromDegrees(37.8, -3.9),
+          name: "Lodge",
+          position: Cesium.Cartesian3.fromDegrees(37.084390902891755, -2.9867632035166025),
           billboard: {
           image: canvas.toDataURL(),
           verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
@@ -428,13 +332,12 @@
           },
         });
       });
-      //Create a red pin representing a hospital from the maki icon set.
-      const hospitalPin = Promise.resolve(
+      const LodgeMaki = Promise.resolve(
         pinBuilder.fromMakiIconId("lodging", Cesium.Color.RED, 48)
       ).then(function (canvas) {
         return viewer.entities.add({
-          name: "Hospital",
-          position: Cesium.Cartesian3.fromDegrees(-75.1698606, 39.9211275),
+          name: "Lodge",
+          position: Cesium.Cartesian3.fromDegrees(37.762555, -4.090915),
           billboard: {
             image: canvas.toDataURL(),
             verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
@@ -442,6 +345,96 @@
           },
         });
       });
+      const LodgeMaki = Promise.resolve(
+        pinBuilder.fromMakiIconId("lodging", Cesium.Color.RED, 48)
+      ).then(function (canvas) {
+        return viewer.entities.add({
+          name: "Lodge",
+          position: Cesium.Cartesian3.fromDegrees(38.311977, -4.421487),
+          billboard: {
+            image: canvas.toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+          },
+        });
+      });
+      const LodgeMaki = Promise.resolve(
+        pinBuilder.fromMakiIconId("lodging", Cesium.Color.RED, 48)
+      ).then(function (canvas) {
+        return viewer.entities.add({
+          name: "Lodge",
+          position: Cesium.Cartesian3.fromDegrees(38.334603728726506, -4.76095587015152),
+          billboard: {
+            image: canvas.toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+          },
+        });
+      });
+      const LodgeMaki = Promise.resolve(
+        pinBuilder.fromMakiIconId("lodging", Cesium.Color.WHITE, 48)
+      ).then(function (canvas) {
+        return viewer.entities.add({
+          name: "Lodge",
+          position: Cesium.Cartesian3.fromDegrees(38.26571077108383, -4.793711844831705),
+          billboard: {
+            image: canvas.toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+          },
+        });
+      });
+      const LodgeMaki = Promise.resolve(
+        pinBuilder.fromMakiIconId("lodging", Cesium.Color.RED, 48)
+      ).then(function (canvas) {
+        return viewer.entities.add({
+          name: "Lodge",
+          position: Cesium.Cartesian3.fromDegrees(37.750897044315934, -4.070928934961557),
+          billboard: {
+            image: canvas.toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+          },
+        });
+      });
+      const LodgeMaki = Promise.resolve(
+        pinBuilder.fromMakiIconId("lodging", Cesium.Color.RED, 48)
+      ).then(function (canvas) {
+        return viewer.entities.add({
+          name: "Lodge",
+          position: Cesium.Cartesian3.fromDegrees(37.82393275760114, -3.9636328630149364),
+          billboard: {
+            image: canvas.toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+          },
+        });
+      });
+      const LodgeMaki = Promise.resolve(
+        pinBuilder.fromMakiIconId("lodging", Cesium.Color.RED, 48)
+      ).then(function (canvas) {
+        return viewer.entities.add({
+          name: "Lodge",
+          position: Cesium.Cartesian3.fromDegrees(37.823979780077934, -3.963634120300412),
+          billboard: {
+            image: canvas.toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+          },
+        });
+      });
+      //viewer.entities.add({
+      //position: Cesium.Cartesian3.fromDegrees(37.823979780077934, -3.963634120300412),
+      //billboard: {
+      //  image: "https://cdn-icons-png.flaticon.com/512/7235/7235047.png", // default: undefined
+      //  show: true, // default
+      //  width: 60, // default: undefined
+      //  height: 60, // default: undefined
+      //  heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+      //  verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
+      //  translucencyByDistance : new Cesium.NearFarScalar(5.0e4, 1.0, 1.0e5, 0.0),
+      //  },
+      //});
     }
     
   </script>
