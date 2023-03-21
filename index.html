@@ -203,6 +203,7 @@
 
   <script>
   var formchange = document.querySelector('datalist');
+  const Motourl = Cesium.buildModuleUrl("https://cdn-icons-png.flaticon.com/512/7235/7235047.png");
   datalist.addEventListener('change', function() {
     var gpxinput = document.getElementById("datalist").value;
     viewer.dataSources
@@ -212,8 +213,8 @@
           {
                 clampToGround: true,
                 trackColor: Cesium.Color.YELLOW,
-                waypointImage: pinBuilder.fromMakiIconId(
-                  "bicycle",
+                waypointImage: pinBuilder.fromUrl(
+                  Motourl,
                   Cesium.Color.BLUE,
                   60
                 ),
@@ -318,8 +319,8 @@
     const pinBuilder = new Cesium.PinBuilder();
 
     function addbillboards() {
-      viewer.entities.add({
       const url = Cesium.buildModuleUrl("https://cdn-icons-png.flaticon.com/512/7235/7235047.png");
+      viewer.entities.add({
       const LodgeUrl = Promise.resolve(
         pinBuilder.fromUrl(url, Cesium.Color.WHITE, 48)
       ).then(function (canvas) {
