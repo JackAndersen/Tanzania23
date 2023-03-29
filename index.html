@@ -213,7 +213,7 @@
           {
                 clampToGround: true,
                 trackColor: Cesium.Color.YELLOW,
-                waypointImage: pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 60),//Promise.resolve(pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 60)).then(function (canvas) {return viewer.entities.add({name: "Himalayan", billboard: {image: Motorurl, verticalOrigin: Cesium.VerticalOrigin.BOTTOM, sizeInMeters: true, scale: 10000}})}),
+                waypointImage: pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 80),//Promise.resolve(pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 60)).then(function (canvas) {return viewer.entities.add({name: "Himalayan", billboard: {image: Motorurl, verticalOrigin: Cesium.VerticalOrigin.BOTTOM, sizeInMeters: true, scale: 10000}})}),
 //billboard: {image: Motorurl, verticalOrigin: Cesium.VerticalOrigin.BOTTOM, sizeInMeters: true, scale: 100},}),//
               }
             )
@@ -319,10 +319,25 @@
     const pinBuilder = new Cesium.PinBuilder();
 
     function addbillboards() {
-      const hospitalPin = Promise.resolve(
+    const LodgePin = Promise.resolve(
+        pinBuilder.fromMakiIconId("embassy", Cesium.Color.WHITE, 48)
+      ).then(function (canvas) {
+        return 
+        viewer.entities.add({
+          name: "StartEnd",
+          position: Cesium.Cartesian3.fromDegrees(36.590906, -3.363662),
+          billboard: {
+            image: canvas.toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+          },
+        });
+    }),
+      const LodgePin = Promise.resolve(
         pinBuilder.fromMakiIconId("lodging", Cesium.Color.WHITE, 48)
       ).then(function (canvas) {
-        return viewer.entities.add({
+        return 
+        viewer.entities.add({
           name: "Lodge",
           position: Cesium.Cartesian3.fromDegrees(37.823979780077934, -3.963634120300412),
           billboard: {
@@ -408,7 +423,6 @@
       //  },
       //});
     }
-    
   </script>
 </body>
 </html>
