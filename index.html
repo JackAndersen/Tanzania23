@@ -213,7 +213,7 @@
           {
                 clampToGround: true,
                 trackColor: Cesium.Color.YELLOW,
-                waypointImage: pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 80),//Promise.resolve(pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 60)).then(function (canvas) {return viewer.entities.add({name: "Himalayan", billboard: {image: Motorurl, verticalOrigin: Cesium.VerticalOrigin.BOTTOM, sizeInMeters: true, scale: 10000}})}),
+                waypointImage: pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 150),//Promise.resolve(pinBuilder.fromUrl(Motourl, Cesium.Color.BLUE, 60)).then(function (canvas) {return viewer.entities.add({name: "Himalayan", billboard: {image: Motorurl, verticalOrigin: Cesium.VerticalOrigin.BOTTOM, sizeInMeters: true, scale: 10000}})}),
 //billboard: {image: Motorurl, verticalOrigin: Cesium.VerticalOrigin.BOTTOM, sizeInMeters: true, scale: 100},}),//
               }
             )
@@ -242,7 +242,7 @@
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
         viewer.clock.multiplier = 750;
-        addstartpoint;
+        addstartpoints();
         addbillboards();
         addtanzania();
        }
@@ -319,7 +319,7 @@
     // });
     const pinBuilder = new Cesium.PinBuilder();
 
-    function addstartpoint() {
+    function addstartpoints() {
      const StartPin = Promise.resolve(
          pinBuilder.fromMakiIconId("embassy", Cesium.Color.WHITE, 48)
        ).then(function (canvas) {
