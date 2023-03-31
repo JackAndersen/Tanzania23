@@ -242,6 +242,7 @@
         viewer.clock.canAnimate = true;
         viewer.clock.shouldAnimate = true;
         viewer.clock.multiplier = 750;
+        addstartpoint;
         addbillboards();
         addtanzania();
        }
@@ -318,21 +319,24 @@
     // });
     const pinBuilder = new Cesium.PinBuilder();
 
+    function addstartpoint() {
+     const StartPin = Promise.resolve(
+         pinBuilder.fromMakiIconId("embassy", Cesium.Color.WHITE, 48)
+       ).then(function (canvas) {
+         return 
+         viewer.entities.add({
+           name: "StartEnd",
+           position: Cesium.Cartesian3.fromDegrees(36.590906, -3.363662),
+           billboard: {
+             image: canvas.toDataURL(),
+             verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+             heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+           },
+         });
+       }),
+     }  
+      
     function addbillboards() {
-    const StartPin = Promise.resolve(
-        pinBuilder.fromMakiIconId("embassy", Cesium.Color.WHITE, 48)
-      ).then(function (canvas) {
-        return 
-        viewer.entities.add({
-          name: "StartEnd",
-          position: Cesium.Cartesian3.fromDegrees(36.590906, -3.363662),
-          billboard: {
-            image: canvas.toDataURL(),
-            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-            heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
-          },
-        });
-    }),
       const LodgePin = Promise.resolve(
         pinBuilder.fromMakiIconId("lodging", Cesium.Color.WHITE, 48)
       ).then(function (canvas) {
